@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" version="2.5">
+  <display-name>SpringWeb</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  <!--指定Spring.xml文件的位置-->
+  <context-param>
+  	<!-- 固定键   ContextLoaderListener会自动根据键获取配置文件   -->
+  	<param-name>contextConfigLocation</param-name>
+    <param-value>classpath:/spring.xml</param-value>
+  </context-param>
+  <!-- Spring web 的关键必须配置的监听器 -->
+  <listener>
+    <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+  </listener>
+  <servlet>
+    <description></description>
+    <display-name>NewServlet</display-name>
+    <servlet-name>NewServlet</servlet-name>
+    <servlet-class>cn.et.web.servlet.NewServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewServlet</servlet-name>
+    <url-pattern>/NewServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>NewsContent</display-name>
+    <servlet-name>NewsContent</servlet-name>
+    <servlet-class>cn.et.web.servlet.NewsContent</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>NewsContent</servlet-name>
+    <url-pattern>/NewsContent</url-pattern>
+  </servlet-mapping>
+</web-app>
